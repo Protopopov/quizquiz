@@ -1,0 +1,310 @@
+/* Mobile First Styles */
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: var(--spacing-sm);
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* Home Screen */
+.home-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    padding-top: var(--spacing-lg);
+}
+
+.welcome-text h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: var(--spacing-xs);
+}
+
+.welcome-text p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+.category-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.category-card {
+    background: var(--bg-card);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-fast);
+    border: 2px solid transparent;
+    cursor: pointer;
+}
+
+.category-card:active {
+    transform: scale(0.98);
+}
+
+.category-card.selected {
+    border-color: var(--primary-color);
+    background-color: var(--primary-light);
+}
+
+.category-icon {
+    font-size: 2.5rem;
+    background: var(--bg-main);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+}
+
+.category-info h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+    color: var(--text-main);
+}
+
+.category-info p {
+    font-size: 0.875rem;
+    color: var(--text-light);
+}
+
+/* Quiz Screen */
+.quiz-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.quiz-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.question-counter {
+    font-weight: 600;
+    color: var(--text-secondary);
+    background: var(--bg-card);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Timer Styles */
+.timer-container {
+    margin-bottom: var(--spacing-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.timer-text {
+    text-align: right;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.timer-bar-container {
+    width: 100%;
+    height: 8px;
+    background-color: #E5E7EB;
+    /* Gray 200 */
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.timer-fill {
+    height: 100%;
+    border-radius: var(--radius-full);
+    transition: width 1s linear, background-color 0.3s ease;
+}
+
+
+/* Question Card */
+.question-card {
+    background: var(--bg-card);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.question-text {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+    color: var(--text-main);
+    line-height: 1.4;
+}
+
+.question-image {
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-md);
+    max-height: 250px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.options-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.option-btn {
+    padding: var(--spacing-md);
+    background: var(--bg-main);
+    border-radius: var(--radius-md);
+    text-align: left;
+    font-size: 1rem;
+    font-weight: 500;
+    border: 2px solid transparent;
+    box-shadow: none;
+    transition: all var(--transition-fast);
+    color: var(--text-main);
+}
+
+.option-btn:active {
+    transform: scale(0.99);
+}
+
+.option-btn.selected {
+    border-color: var(--primary-color);
+    background-color: var(--primary-light);
+    color: var(--primary-dark);
+}
+
+.option-btn.correct {
+    border-color: var(--success);
+    background-color: #D1FAE5;
+    /* Green 100 */
+    color: var(--success);
+}
+
+.option-btn.wrong {
+    border-color: var(--error);
+    background-color: #FEE2E2;
+    /* Red 100 */
+    color: var(--error);
+}
+
+/* Feedback Section */
+.feedback-section {
+    margin-top: var(--spacing-md);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid #E5E7EB;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.feedback-section p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.next-btn {
+    margin-top: var(--spacing-md);
+    width: 100%;
+}
+
+/* Result Screen */
+.result-container {
+    text-align: center;
+    padding-top: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-lg);
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.score-display {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.result-message {
+    font-size: 1.5rem;
+    color: var(--text-main);
+    font-weight: 700;
+}
+
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    width: 100%;
+}
+
+.btn-primary,
+.btn-secondary {
+    padding: var(--spacing-md);
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    font-size: 1.1rem;
+    width: 100%;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 14px 0 rgba(5, 150, 105, 0.39);
+}
+
+.btn-secondary {
+    background-color: white;
+    color: var(--text-main);
+    border: 2px solid var(--bg-main);
+}
+
+/* Review List */
+.review-list {
+    width: 100%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+}
+
+.review-item {
+    background: var(--bg-card);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+}
+
+.review-question {
+    font-weight: 600;
+    margin-bottom: var(--spacing-xs);
+    font-size: 0.95rem;
+}
+
+.review-answer {
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+}
+
+.review-answer.correct {
+    color: var(--success);
+}
+
+.review-answer.wrong {
+    color: var(--error);
+}
