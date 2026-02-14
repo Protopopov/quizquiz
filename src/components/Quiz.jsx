@@ -1,23 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import Timer from './Timer';
 
-const Quiz = ({ category, onFinish }) => {
+const Quiz = ({ category, onFinish, translate }) => {
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [score, setScore] = useState(0);
     const [selectedOption, setSelectedOption] = useState(null);
     const [isAnswered, setIsAnswered] = useState(false);
-    const [userAnswers, setUserAnswers] = useState([]); // Store answers for review
+    const [userAnswers, setUserAnswers] = useState([]);
     const [animClass, setAnimClass] = useState('slide-in');
+    const [isTimeOut, setIsTimeOut] = useState(false);
 
     const questions = category.questions;
     const currentQuestion = questions[currentQuestionIndex];
     const totalQuestions = questions.length;
 
     useEffect(() => {
-        // Reset animation and state on question change
         setAnimClass('slide-in');
-
-        // Remove the class after animation completes to allow re-triggering
+        setIsTimeOut(false);
         const timer = setTimeout(() => {
             setAnimClass('');
         }, 500);
@@ -25,7 +24,7 @@ const Quiz = ({ category, onFinish }) => {
     }, [currentQuestionIndex]);
 
     const handleOptionClick = (option) => {
-        if (isAnswered) return;
+        if (isAnswered || isTimeOut) return;
 
         setSelectedOption(option);
         setIsAnswered(true);
@@ -35,7 +34,6 @@ const Quiz = ({ category, onFinish }) => {
             setScore(prev => prev + 1);
         }
 
-        // Record Answer
         setUserAnswers(prev => [
             ...prev,
             {
@@ -49,9 +47,11 @@ const Quiz = ({ category, onFinish }) => {
     };
 
     const handleTimeUp = () => {
-        if (!isAnswered) {
-            setIsAnswered(true);
-            // Record time-out answer
+        if (!isAnswered && !isTimeOut) {
+            setIsTimeOut(true);
+            setIsAnswered(true); // Treat as answered to show feedback
+            setSelectedOption(null); // No option was selected
+
             setUserAnswers(prev => [
                 ...prev,
                 {
@@ -70,8 +70,9 @@ const Quiz = ({ category, onFinish }) => {
             setCurrentQuestionIndex(prev => prev + 1);
             setSelectedOption(null);
             setIsAnswered(false);
+            setIsTimeOut(false);
         } else {
-            onFinish(score, userAnswers); // Pass score AND detailed answers
+            onFinish(score, userAnswers);
         }
     };
 
@@ -83,7 +84,7 @@ const Quiz = ({ category, onFinish }) => {
                     style={{ cursor: 'pointer', fontSize: '1.2rem', color: 'var(--text-light)' }}
                     onClick={() => onFinish(null)}
                 >
-                    ✕ Quit
+                    ✕ {translate('common.quit')}
                 </div>
                 <div className="question-counter">
                     {currentQuestionIndex + 1} / {totalQuestions}
@@ -94,12 +95,12 @@ const Quiz = ({ category, onFinish }) => {
                 duration={20}
                 onTimeUp={handleTimeUp}
                 questionIndex={currentQuestionIndex}
-                isPaused={isAnswered} // Pause timer when answered
+                isPaused={isAnswered}
             />
 
             <div className={`question-card ${animClass}`}>
                 <h2 className="question-text">{currentQuestion.question}</h2>
-                {currentQuestion.type === 'image' && (
+                {currentQuestion.image && (
                     <img
                         src={currentQuestion.image}
                         alt="Question visual"
@@ -110,7 +111,7 @@ const Quiz = ({ category, onFinish }) => {
                 <div className="options-grid">
                     {currentQuestion.options.map((option, index) => {
                         let extraClass = '';
-                        if (isAnswered) {
+                        if (isAnswered || isTimeOut) {
                             if (option === currentQuestion.answer) {
                                 extraClass = 'correct';
                             } else if (option === selectedOption) {
@@ -123,7 +124,7 @@ const Quiz = ({ category, onFinish }) => {
                                 key={index}
                                 className={`option-btn ${selectedOption === option ? 'selected' : ''} ${extraClass}`}
                                 onClick={() => handleOptionClick(option)}
-                                disabled={isAnswered}
+                                disabled={isAnswered || isTimeOut}
                             >
                                 {option}
                             </button>
@@ -131,12 +132,20 @@ const Quiz = ({ category, onFinish }) => {
                     })}
                 </div>
 
+                {isTimeOut && (
+                    <div className="timeout-notification" style={{ color: '#ef4444', fontWeight: 'bold', marginTop: '1rem', textAlign: 'center' }}>
+                        {translate('common.time_out')}
+                    </div>
+                )}
+
                 {isAnswered && (
                     <div className="feedback-section">
-                        <p><strong>{selectedOption === currentQuestion.answer ? "Correct!" : "Incorrect"}</strong></p>
+                        {!isTimeOut && (
+                            <p><strong>{selectedOption === currentQuestion.answer ? translate('common.correct') : translate('common.incorrect')}</strong></p>
+                        )}
                         <p style={{ marginTop: '0.5rem' }}>{currentQuestion.explanation}</p>
                         <button className="btn-primary next-btn" onClick={handleNext}>
-                            {currentQuestionIndex < totalQuestions - 1 ? "Next Question" : "Finish Quiz"}
+                            {currentQuestionIndex < totalQuestions - 1 ? translate('common.next_question') : translate('common.finish_quiz')}
                         </button>
                     </div>
                 )}

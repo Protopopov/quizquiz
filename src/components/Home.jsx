@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { QUIZ_DATA } from '../data/quizData';
+import LanguageSelector from './LanguageSelector';
 import '../styles/mobile.css';
 import '../styles/desktop.css';
 
-const Home = ({ onStart }) => {
+const Home = ({ onStart, translate, quizData, currentLanguage, onLanguageChange }) => {
     const [selectedId, setSelectedId] = useState(null);
 
     const handleSelect = (id) => {
@@ -18,13 +18,18 @@ const Home = ({ onStart }) => {
 
     return (
         <div className="home-container fade-in">
+            <LanguageSelector
+                currentLanguage={currentLanguage}
+                onLanguageChange={onLanguageChange}
+            />
+
             <div className="welcome-text">
-                <h1>Hello User,</h1>
-                <p>What subject do you want to improve today?</p>
+                <h1>{translate('common.hello')} User,</h1>
+                <p>{translate('common.subject_question')}</p>
             </div>
 
             <div className="category-grid">
-                {QUIZ_DATA.map((cat) => (
+                {quizData.map((cat) => (
                     <div
                         key={cat.id}
                         className={`category-card ${selectedId === cat.id ? 'selected' : ''}`}
@@ -36,7 +41,7 @@ const Home = ({ onStart }) => {
                         </div>
                         <div className="category-info">
                             <h3>{cat.name}</h3>
-                            <p>{cat.questions.length} Questions</p>
+                            <p>{translate('common.questions_count', { count: cat.questions.length })}</p>
                         </div>
                     </div>
                 ))}
@@ -48,11 +53,11 @@ const Home = ({ onStart }) => {
                     onClick={handleStart}
                     style={{
                         marginTop: '2rem',
-                        backgroundColor: QUIZ_DATA.find(c => c.id === selectedId).color,
-                        boxShadow: `0 4px 14px 0 ${QUIZ_DATA.find(c => c.id === selectedId).color}66`
+                        backgroundColor: quizData.find(c => c.id === selectedId).color,
+                        boxShadow: `0 4px 14px 0 ${quizData.find(c => c.id === selectedId).color}66`
                     }}
                 >
-                    Start {QUIZ_DATA.find(c => c.id === selectedId).name} Quiz
+                    {translate('common.start_quiz', { name: quizData.find(c => c.id === selectedId).name })}
                 </button>
             )}
         </div>

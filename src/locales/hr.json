@@ -1,0 +1,367 @@
+{
+    "common": {
+        "hello": "Pozdrav",
+        "subject_question": "Koji predmet želiš poboljšati danas?",
+        "start_quiz": "Započni {{name}} kviz",
+        "questions_count": "{{count}} pitanja",
+        "quit": "Odustani",
+        "next_question": "Sljedeće pitanje",
+        "finish_quiz": "Završi kviz",
+        "correct": "Točno!",
+        "incorrect": "Netočno",
+        "time_out": "Vrijeme je isteklo!",
+        "you_scored": "Postigli ste",
+        "play_again": "Igraj ponovno",
+        "choose_topic": "Odaberi temu",
+        "outstanding": "Izvrsno!",
+        "well_done": "Bravo!",
+        "good_effort": "Dobar trud!"
+    },
+    "categories": {
+        "geography": {
+            "name": "Geografija",
+            "questions": [
+                {
+                    "question": "Koja zemlja ima najveći broj stanovnika na svijetu?",
+                    "options": [
+                        "Indija",
+                        "Kina",
+                        "Sjedinjene Američke Države",
+                        "Indonezija"
+                    ],
+                    "answer": "Indija",
+                    "explanation": "Od 2023. godine, Indija je pretekla Kinu i postala najmnogoljudnija zemlja na svijetu."
+                },
+                {
+                    "question": "Koji je glavni grad Australije?",
+                    "options": [
+                        "Sydney",
+                        "Melbourne",
+                        "Canberra",
+                        "Brisbane"
+                    ],
+                    "answer": "Canberra",
+                    "explanation": "Canberra je odabrana za glavni grad 1908. godine kao kompromis između suparnika Sydneya i Melbournea."
+                },
+                {
+                    "question": "Što predstavlja Eiffelov toranj?",
+                    "options": [
+                        "Pariz",
+                        "London",
+                        "Rim",
+                        "Berlin"
+                    ],
+                    "answer": "Pariz",
+                    "explanation": "Eiffelov toranj je željezni rešetkasti toranj na Marsovim poljima u Parizu, Francuska."
+                },
+                {
+                    "question": "Koja je najduža rijeka na svijetu?",
+                    "options": [
+                        "Amazon",
+                        "Nil",
+                        "Yangtze",
+                        "Mississippi"
+                    ],
+                    "answer": "Nil",
+                    "explanation": "Nil se općenito smatra najdužom rijekom na svijetu, protežući se oko 6,650 km."
+                },
+                {
+                    "question": "Koji je kontinent poznat kao 'Tamni kontinent'?",
+                    "options": [
+                        "Azija",
+                        "Afrika",
+                        "Južna Amerika",
+                        "Australija"
+                    ],
+                    "answer": "Afrika",
+                    "explanation": "Termin 'Tamni kontinent' skovao je Henry Morton Stanley 1878. godine kako bi opisao nepoznatu unutrašnjost Afrike."
+                },
+                {
+                    "question": "Koja je najmanja država na svijetu?",
+                    "options": [
+                        "Monako",
+                        "Vatikan",
+                        "San Marino",
+                        "Lihtenštajn"
+                    ],
+                    "answer": "Vatikan",
+                    "explanation": "Vatikan je neovisna grad-država enklava unutar Rima, Italija, s površinom od samo 44 hektara."
+                },
+                {
+                    "question": "Na kojem se planinskom lancu nalazi Mount Everest?",
+                    "options": [
+                        "Ande",
+                        "Stjenjak",
+                        "Alpe",
+                        "Himalaja"
+                    ],
+                    "answer": "Himalaja",
+                    "explanation": "Mount Everest je najviša planina na Zemlji iznad razine mora, smještena u lancu Mahalangur Himal u Himalaji."
+                },
+                {
+                    "question": "Identificirajte ovu poznatu znamenitost.",
+                    "options": [
+                        "Taj Mahal",
+                        "Koloseum",
+                        "Machu Picchu",
+                        "Petra"
+                    ],
+                    "answer": "Taj Mahal",
+                    "explanation": "Taj Mahal je mauzolej od bjelokosti i mramora na desnoj obali rijeke Yamune u Agri, Indija."
+                },
+                {
+                    "question": "Koji je ocean najveći?",
+                    "options": [
+                        "Atlantski",
+                        "Indijski",
+                        "Arktički",
+                        "Tihi"
+                    ],
+                    "answer": "Tihi",
+                    "explanation": "Tihi ocean se proteže od Arktičkog oceana na sjeveru do Južnog oceana na jugu."
+                },
+                {
+                    "question": "Koja je zemlja poznata po tulipanima i vetrenjačama?",
+                    "options": [
+                        "Njemačka",
+                        "Nizozemska",
+                        "Belgija",
+                        "Danska"
+                    ],
+                    "answer": "Nizozemska",
+                    "explanation": "Nizozemska je poznata po poljima lukovica (tulipana) i povijesnim vetrenjačama."
+                }
+            ]
+        },
+        "sports": {
+            "name": "Sport",
+            "questions": [
+                {
+                    "question": "Koji je sport poznat kao 'kralj sportova'?",
+                    "options": [
+                        "Košarka",
+                        "Kriket",
+                        "Nogomet",
+                        "Tenis"
+                    ],
+                    "answer": "Nogomet",
+                    "explanation": "Nogomet (Udruženi nogomet) je najpopularniji sport na svijetu, često nazivan 'kraljem sportova'."
+                },
+                {
+                    "question": "Koliko igrača ima u standardnom odbojkaškom timu?",
+                    "options": [
+                        "5",
+                        "6",
+                        "7",
+                        "8"
+                    ],
+                    "answer": "6",
+                    "explanation": "Standardni odbojkaški tim sastoji se od 6 igrača na terenu istovremeno."
+                },
+                {
+                    "question": "Identificirajte ovu loptu.",
+                    "options": [
+                        "Nogometna",
+                        "Košarkaška",
+                        "Odbojkaška",
+                        "Ragbi"
+                    ],
+                    "answer": "Košarkaška",
+                    "explanation": "Ovo je košarkaška lopta, obično narančasta s crnim rebrima i hrapavom površinom."
+                },
+                {
+                    "question": "Tko drži rekord po broju zlatnih olimpijskih medalja?",
+                    "options": [
+                        "Usain Bolt",
+                        "Michael Phelps",
+                        "Carl Lewis",
+                        "Mark Spitz"
+                    ],
+                    "answer": "Michael Phelps",
+                    "explanation": "Michael Phelps drži rekord svih vremena po broju zlatnih olimpijskih medalja sa 23."
+                },
+                {
+                    "question": "Standardni teniski meč sastoji se od koliko setova?",
+                    "options": [
+                        "3 ili 5",
+                        "2 ili 4",
+                        "1 ili 3",
+                        "4 ili 6"
+                    ],
+                    "answer": "3 ili 5",
+                    "explanation": "Mečevi su obično na 2 dobivena seta (best of 3), dok su Grand Slam mečevi u muškom singlu na 3 dobivena seta (best of 5)."
+                },
+                {
+                    "question": "Koja je zemlja osvojila FIFA Svjetsko prvenstvo 2018.?",
+                    "options": [
+                        "Brazil",
+                        "Njemačka",
+                        "Francuska",
+                        "Argentina"
+                    ],
+                    "answer": "Francuska",
+                    "explanation": "Francuska je osvojila svoju drugu titulu svjetskog prvaka pobjedom nad Hrvatskom 4-2 u finalu."
+                },
+                {
+                    "question": "Koja je duljina maratona?",
+                    "options": [
+                        "40 km",
+                        "42.195 km",
+                        "45 km",
+                        "50 km"
+                    ],
+                    "answer": "42.195 km",
+                    "explanation": "Službena duljina maratona je 42.195 kilometara."
+                },
+                {
+                    "question": "Koji sport koristi ovu opremu?",
+                    "options": [
+                        "Golf",
+                        "Hokej",
+                        "Kriket",
+                        "Polo"
+                    ],
+                    "answer": "Golf",
+                    "explanation": "Ovo su palica za golf i loptica, koji se koriste u sportu golfu."
+                },
+                {
+                    "question": "U kojem sportu biste izveli 'slam dunk'?",
+                    "options": [
+                        "Odbojka",
+                        "Tenis",
+                        "Košarka",
+                        "Badminton"
+                    ],
+                    "answer": "Košarka",
+                    "explanation": "Slam dunk je vrsta košarkaškog šuta koji se izvodi kada igrač skoči u zrak i poentira stavljajući loptu izravno kroz koš."
+                },
+                {
+                    "question": "Super Bowl je finalna utakmica kojeg sporta?",
+                    "options": [
+                        "Bejzbol",
+                        "Košarka",
+                        "Američki nogomet",
+                        "Hokej"
+                    ],
+                    "answer": "Američki nogomet",
+                    "explanation": "Super Bowl je godišnja prvenstvena utakmica National Football League (NFL)."
+                }
+            ]
+        },
+        "food": {
+            "name": "Hrana",
+            "questions": [
+                {
+                    "question": "Iz koje zemlje potječe pizza?",
+                    "options": [
+                        "Francuska",
+                        "SAD",
+                        "Italija",
+                        "Grčka"
+                    ],
+                    "answer": "Italija",
+                    "explanation": "Moderna pizza razvila se iz sličnih jela s ravnim tijestom u Napulju, Italija, u 18. ili početkom 19. stoljeća."
+                },
+                {
+                    "question": "Koji je glavni sastojak guacamolea?",
+                    "options": [
+                        "Rajčica",
+                        "Luk",
+                        "Avokado",
+                        "Paprika"
+                    ],
+                    "answer": "Avokado",
+                    "explanation": "Guacamole je umak, namaz ili salata na bazi avokada prvi put razvijen u Meksiku."
+                },
+                {
+                    "question": "Identificirajte ovo voće.",
+                    "options": [
+                        "Jabuka",
+                        "Banana",
+                        "Mango",
+                        "Kruška"
+                    ],
+                    "answer": "Banana",
+                    "explanation": "Ovo je banana, izduženo, jestivo voće – botanički bobica."
+                },
+                {
+                    "question": "Sushij je tradicionalno jelo iz koje zemlje?",
+                    "options": [
+                        "Kina",
+                        "Japan",
+                        "Tajland",
+                        "Koreja"
+                    ],
+                    "answer": "Japan",
+                    "explanation": "Sushi je japansko jelo od pripremljene riže s octom, obično s malo šećera i soli, uz razne sastojke."
+                },
+                {
+                    "question": "Koji se orašasti plod koristi za izradu marcipana?",
+                    "options": [
+                        "Jalapeno",
+                        "Orah",
+                        "Badem",
+                        "Kikiriki"
+                    ],
+                    "answer": "Badem",
+                    "explanation": "Marcipan je slastica koja se prvenstveno sastoji od šećera ili meda i bademovog brašna (mljevenih badema)."
+                },
+                {
+                    "question": "Koje je najkonzumiranije piće na svijetu nakon vode?",
+                    "options": [
+                        "Kava",
+                        "Čaj",
+                        "Pivo",
+                        "Sok od naranče"
+                    ],
+                    "answer": "Čaj",
+                    "explanation": "Čaj je drugo najkonzumiranije piće na svijetu, odmah nakon vode."
+                },
+                {
+                    "question": "Koji je vitamin obilan u agrumima?",
+                    "options": [
+                        "Vitamin A",
+                        "Vitamin B",
+                        "Vitamin C",
+                        "Vitamin D"
+                    ],
+                    "answer": "Vitamin C",
+                    "explanation": "Agrumi poput naranči, limuna i grejpa izvrsni su izvori vitamina C."
+                },
+                {
+                    "question": "Identificirajte ovo jelo.",
+                    "options": [
+                        "Pizza",
+                        "Burger",
+                        "Tjestenina",
+                        "Salata"
+                    ],
+                    "answer": "Pizza",
+                    "explanation": "Ovo je pizza, slano jelo talijanskog podrijetla."
+                },
+                {
+                    "question": "Od čega se pravi tofu?",
+                    "options": [
+                        "Sojino zrno",
+                        "Riža",
+                        "Pšenica",
+                        "Kukuruz"
+                    ],
+                    "answer": "Sojino zrno",
+                    "explanation": "Tofu, poznat i kao gruševina od graha, je hrana pripremljena koagulacijom sojinog mlijeka."
+                },
+                {
+                    "question": "Kroasan je poznato pecivo iz koje zemlje?",
+                    "options": [
+                        "Italija",
+                        "Francuska",
+                        "Španjolska",
+                        "Njemačka"
+                    ],
+                    "answer": "Francuska",
+                    "explanation": "Kroasan je maslacasto, lisnato, viennoiserie pecivo austrijskog podrijetla, ali se povezuje s Francuskom."
+                }
+            ]
+        }
+    }
+}
