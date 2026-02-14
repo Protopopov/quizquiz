@@ -3,7 +3,7 @@ import LanguageSelector from './LanguageSelector';
 import '../styles/mobile.css';
 import '../styles/desktop.css';
 
-const Home = ({ onStart, translate, quizData, currentLanguage, onLanguageChange }) => {
+const Home = ({ onStart, translate, quizData, currentLanguage, onLanguageChange, nickname }) => {
     const [selectedId, setSelectedId] = useState(null);
 
     const handleSelect = (id) => {
@@ -24,7 +24,7 @@ const Home = ({ onStart, translate, quizData, currentLanguage, onLanguageChange 
             />
 
             <div className="welcome-text">
-                <h1>{translate('common.hello')} User,</h1>
+                <h1>{translate('common.hello')} {nickname},</h1>
                 <p>{translate('common.subject_question')}</p>
             </div>
 

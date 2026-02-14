@@ -15,7 +15,11 @@
         "choose_topic": "Обрати тему",
         "outstanding": "Видатно!",
         "well_done": "Молодець!",
-        "good_effort": "Гарна спроба!"
+        "good_effort": "Гарна спроба!",
+        "enter_nickname": "Введіть свій нікнейм",
+        "nickname_placeholder": "Ваше ім'я...",
+        "continue": "Продовжити",
+        "language": "Мова"
     },
     "categories": {
         "geography": {

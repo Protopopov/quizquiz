@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Home from './components/Home';
 import Quiz from './components/Quiz';
 import Result from './components/Result';
+import NicknameScreen from './components/NicknameScreen';
 import { QUIZ_DATA_METADATA } from './data/quizData';
 import en from './locales/en.json';
 import hr from './locales/hr.json';
@@ -10,7 +11,8 @@ import uk from './locales/uk.json';
 const locales = { en, hr, uk };
 
 function App() {
-  const [gameState, setGameState] = useState('home'); // home, quiz, result
+  const [gameState, setGameState] = useState('nickname'); // nickname, home, quiz, result
+  const [nickname, setNickname] = useState(localStorage.getItem('quiz_nickname') || '');
   const [currentCategory, setCurrentCategory] = useState(null);
   const [score, setScore] = useState(0);
   const [userAnswers, setUserAnswers] = useState([]);
@@ -19,8 +21,20 @@ function App() {
   const t = locales[language];
 
   useEffect(() => {
+    if (nickname && gameState === 'nickname') {
+      setGameState('home');
+    }
+  }, []);
+
+  useEffect(() => {
     localStorage.setItem('quiz_lang', language);
   }, [language]);
+
+  const handleNicknameSubmit = (name) => {
+    setNickname(name);
+    localStorage.setItem('quiz_nickname', name);
+    setGameState('home');
+  };
 
   const translate = (key, params = {}) => {
     const keys = key.split('.');
@@ -86,6 +100,13 @@ function App() {
 
   return (
     <div className="app-container">
+      {gameState === 'nickname' && (
+        <NicknameScreen
+          onNameSubmit={handleNicknameSubmit}
+          translate={translate}
+        />
+      )}
+
       {gameState === 'home' && (
         <Home
           onStart={handleStartQuiz}
@@ -93,6 +114,7 @@ function App() {
           quizData={localizedQuizData}
           currentLanguage={language}
           onLanguageChange={setLanguage}
+          nickname={nickname}
         />
       )}
 
@@ -113,6 +135,7 @@ function App() {
           onHome={handleGoHome}
           userAnswers={userAnswers}
           translate={translate}
+          nickname={nickname}
         />
       )}
     </div>

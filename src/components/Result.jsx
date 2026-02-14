@@ -3,7 +3,7 @@ import resultGreat from '../assets/result_great.png';
 import resultGood from '../assets/result_good.png';
 import resultPoor from '../assets/result_poor.png';
 
-const Result = ({ score, totalQuestions, category, onRestart, onHome, translate }) => {
+const Result = ({ score, totalQuestions, category, onRestart, onHome, translate, nickname }) => {
     const percentage = Math.round((score / totalQuestions) * 100);
 
     let messageKey = "common.good_effort";
@@ -28,7 +28,7 @@ const Result = ({ score, totalQuestions, category, onRestart, onHome, translate 
             </div>
 
             <div>
-                <h2 className="result-message">{translate(messageKey)}</h2>
+                <h2 className="result-message">{nickname}, {translate(messageKey)}</h2>
                 <p style={{ color: 'var(--text-secondary)', marginTop: '0.5rem' }}>
                     {translate('common.you_scored')}
                 </p>

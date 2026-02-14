@@ -15,7 +15,11 @@
         "choose_topic": "Odaberi temu",
         "outstanding": "Izvrsno!",
         "well_done": "Bravo!",
-        "good_effort": "Dobar trud!"
+        "good_effort": "Dobar trud!",
+        "enter_nickname": "Unesite svoj nadimak",
+        "nickname_placeholder": "Vaše ime...",
+        "continue": "Nastavi",
+        "language": "Jezik"
     },
     "categories": {
         "geography": {
