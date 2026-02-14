@@ -44,38 +44,58 @@
   color: #888;
 }
 
-/* Language Dropdown */
+/* Language Dropdown - Mobile UI Consistent Style */
 .language-dropdown-container {
   position: relative;
   display: inline-block;
-  margin-bottom: 2rem;
+  margin-bottom: var(--spacing-lg);
+  font-family: inherit;
+  width: 100%;
+  /* Full width on mobile if needed, or adaptable */
+  max-width: 200px;
+  /* Optional cap */
 }
 
 .lang-dropdown-trigger {
   display: flex;
   align-items: center;
-  gap: 0.8rem;
-  padding: 0.6rem 1.2rem;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  background: white;
+  justify-content: space-between;
+  width: 100%;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  /* Matches category-card padding */
+  border: 2px solid transparent;
+  /* Prepare for border transition like category-card */
+  border-radius: var(--radius-lg);
+  /* Matches category-card radius */
+  background: var(--bg-card);
+  /* Matches category-card bg */
   cursor: pointer;
-  transition: all 0.2s;
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
   font-size: 1rem;
-  color: #1a202c;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+  color: var(--text-main);
+  box-shadow: var(--shadow-sm);
+  font-weight: 600;
 }
 
-.lang-dropdown-trigger:hover,
+.lang-dropdown-trigger:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.lang-dropdown-trigger:active {
+  transform: scale(0.98);
+}
+
 .lang-dropdown-trigger.active {
-  border-color: #10b981;
-  background: #f8fafc;
+  border-color: var(--primary-color);
+  background-color: var(--primary-light);
 }
 
 .dropdown-arrow {
-  font-size: 0.7rem;
-  color: #94a3b8;
-  transition: transform 0.2s;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  transition: transform var(--transition-fast);
 }
 
 .lang-dropdown-trigger.active .dropdown-arrow {
@@ -84,41 +104,55 @@
 
 .lang-dropdown-menu {
   position: absolute;
-  top: calc(100% + 8px);
-  left: 50%;
-  transform: translateX(-50%);
-  background: white;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  top: calc(100% + var(--spacing-xs));
+  left: 0;
+  right: 0;
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
   z-index: 100;
-  min-width: 180px;
   overflow: hidden;
-  padding: 4px;
+  padding: var(--spacing-xs);
+  animation: fadeIn 0.2s ease-out;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .lang-option {
   display: flex;
   align-items: center;
-  gap: 0.8rem;
+  gap: var(--spacing-sm);
   width: 100%;
-  padding: 0.8rem 1rem;
+  padding: var(--spacing-sm);
   border: none;
   background: none;
   cursor: pointer;
   text-align: left;
-  border-radius: 8px;
-  transition: background 0.2s;
-  font-size: 0.95rem;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition-fast);
+  font-size: 1rem;
+  color: var(--text-main);
+  font-weight: 500;
 }
 
 .lang-option:hover {
-  background: #f1f5f9;
+  background: var(--bg-main);
 }
 
 .lang-option.selected {
-  background: #ecfdf5;
-  color: #059669;
+  background: var(--primary-light);
+  color: var(--primary-dark);
   font-weight: 600;
 }
 
@@ -132,13 +166,27 @@
 /* Default option background */
 .option-btn {
   background-color: white !important;
+  border: 2px solid #e2e8f0 !important;
+  /* Visual gray border */
+  color: var(--text-main) !important;
+  font-weight: 500;
+}
+
+.option-btn:hover {
+  border-color: var(--primary-color) !important;
+  background-color: #f8fafc !important;
 }
 
 .option-btn.selected {
   background-color: var(--primary-color) !important;
+  /* Darker green background */
+  color: white !important;
+  /* White text for contrast */
+  border-color: var(--primary-color) !important;
+  font-weight: 600;
 }
 
-/* Nickname Screen */
+/* Nickname Screen - Modern Input Style */
 .nickname-container {
   display: flex;
   justify-content: center;
@@ -149,29 +197,60 @@
 .nickname-card {
   background: white;
   padding: 3rem;
-  border-radius: 2rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border-radius: 24px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
   text-align: center;
-  max-width: 400px;
+  max-width: 420px;
   width: 100%;
+  border: 1px solid #f8fafc;
 }
 
 .nickname-form {
-  margin-top: 2rem;
+  margin-top: 2.5rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
 
+.input-group {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.input-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #64748b;
+  margin-left: 4px;
+}
+
 .nickname-input {
-  padding: 1rem 1.5rem;
-  border-radius: 1rem;
+  width: 100%;
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
   border: 2px solid #e2e8f0;
   font-size: 1.1rem;
   outline: none;
-  transition: border-color 0.2s;
+  transition: all 0.2s ease;
+  background-color: #f8fafc;
+  color: #334155;
+  box-sizing: border-box;
+  /* Ensure padding doesn't break width */
+}
+
+.nickname-input:hover {
+  border-color: #cbd5e1;
+  background-color: white;
 }
 
 .nickname-input:focus {
-  border-color: #10b981;
+  border-color: var(--primary-color);
+  background-color: white;
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.15);
+}
+
+.nickname-input::placeholder {
+  color: #94a3b8;
 }

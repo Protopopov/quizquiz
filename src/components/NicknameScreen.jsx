@@ -17,15 +17,21 @@ const NicknameScreen = ({ onNameSubmit, translate }) => {
                 <p>{translate('common.enter_nickname')}</p>
 
                 <form onSubmit={handleSubmit} className="nickname-form">
-                    <input
-                        type="text"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        placeholder={translate('common.nickname_placeholder')}
-                        autoFocus
-                        required
-                        className="nickname-input"
-                    />
+                    <div className="input-group">
+                        <label htmlFor="nickname" className="input-label">
+                            {translate('common.enter_nickname')}
+                        </label>
+                        <input
+                            id="nickname"
+                            type="text"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            placeholder={translate('common.nickname_placeholder')}
+                            autoFocus
+                            required
+                            className="nickname-input"
+                        />
+                    </div>
                     <button type="submit" className="btn-primary" disabled={!name.trim()}>
                         {translate('common.continue')}
                     </button>

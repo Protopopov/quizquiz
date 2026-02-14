@@ -7,6 +7,7 @@ import { QUIZ_DATA_METADATA } from './data/quizData';
 import en from './locales/en.json';
 import hr from './locales/hr.json';
 import uk from './locales/uk.json';
+import './App.css';
 
 const locales = { en, hr, uk };
 

@@ -92,6 +92,7 @@ const Quiz = ({ category, onFinish, translate }) => {
             </div>
 
             <Timer
+                key={currentQuestionIndex}
                 duration={20}
                 onTimeUp={handleTimeUp}
                 questionIndex={currentQuestionIndex}
